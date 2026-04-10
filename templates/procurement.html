@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Procurement</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/procurement">Procurement</a>
+    <a href="/inventory">Stock</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+
+<h2>Dhaan Purchase (Procurement)</h2>
+
+<form method="POST">
+
+<input name="supplier" placeholder="Farmer / Supplier Name" required>
+<input name="mobile" placeholder="Mobile">
+<input name="address" placeholder="Address">
+<input name="aadhaar" placeholder="Aadhaar">
+
+<input name="paddy" placeholder="Paddy Type (Basmati/Non)">
+<input name="moisture" placeholder="Moisture %">
+
+<input name="weight" type="number" step="0.01" placeholder="Weight (Qt/Kg)" required>
+<input name="rate" type="number" step="0.01" placeholder="Rate per Quintal" required>
+
+<input name="commission" placeholder="Commission">
+<input name="transport" placeholder="Transport Cost">
+
+<input type="date" name="date">
+
+<select name="status">
+<option>Paid</option>
+<option>Pending</option>
+</select>
+
+<select name="mode">
+<option>Cash</option>
+<option>Bank</option>
+<option>UPI</option>
+</select>
+
+<input name="slip" placeholder="Slip No">
+
+<button>Add Purchase</button>
+
+</form>
+
+<script>
+function calculateTotal() {
+    let w = document.getElementById('weight').value || 0;
+    let r = document.getElementById('rate').value || 0;
+    document.getElementById('total').value = w * r;
+}
+
+document.getElementById('weight').oninput = calculateTotal;
+document.getElementById('rate').oninput = calculateTotal;
+</script>
+<hr>
+
+<h3>Purchase Records</h3>
+
+<table border="1" width="100%">
+<tr>
+<th>Supplier</th>
+<th>Type</th>
+<th>Weight</th>
+<th>Rate</th>
+<th>Total</th>
+<th>Status</th>
+</tr>
+
+{% for d in data %}
+<tr>
+<td>{{d.supplier_name}}</td>
+<td>{{d.paddy_type}}</td>
+<td>{{d.weight}}</td>
+<td>{{d.rate}}</td>
+<td>₹{{d.total_amount}}</td>
+<td>{{d.payment_status}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

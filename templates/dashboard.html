@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<h3 style="text-align:center;">ERP</h3>
+<a href="/dashboard">Dashboard</a>
+<a href="/billing">Billing</a>
+<a href="/inventory">Inventory</a>
+<a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+
+<h2>Dashboard</h2>
+
+<div class="cards">
+  <div class="card">Bills: {{total_bills}}</div>
+  <div class="card">Revenue: ₹{{total_revenue}}</div>
+  <div class="card">Items: {{total_items}}</div>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rice Mill Inventory</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3 style="text-align:center;">Rice ERP</h3>
+
+    <a href="/dashboard">🏠 Dashboard</a>
+    <a href="/procurement">🌾 Procurement</a>
+    <a href="/inventory_rice">📦 Stock</a>
+    <a href="/production">🏭 Production</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+
+    <h2>📦 Rice Mill Stock Management</h2>
+
+    <!-- Summary Cards -->
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Items</h3>
+            <p>{{items|length}}</p>
+        </div>
+
+        <div class="card">
+            <h3>Low Stock</h3>
+            <p>
+            {% set low = 0 %}
+            {% for i in items %}
+                {% if i.quantity < i.min_stock %}
+                    {% set low = low + 1 %}
+                {% endif %}
+            {% endfor %}
+            {{low}}
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Table -->
+    <div class="card" style="margin-top:20px;">
+
+        <h3>Stock Details</h3>
+
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Location</th>
+                <th>Batch</th>
+                <th>Status</th>
+            </tr>
+
+            {% for i in items %}
+            <tr>
+                <td>{{i.item_name}}</td>
+                <td>{{i.category}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.unit}}</td>
+                <td>{{i.location}}</td>
+                <td>{{i.batch_no}}</td>
+
+                <td>
+                {% if i.quantity < i.min_stock %}
+                    <span class="low">Low Stock</span>
+                {% else %}
+                    <span class="ok">OK</span>
+                {% endif %}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3 style="text-align:center;">ERP</h3>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/billing">Billing</a>
+    <a href="/inventory">Inventory</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+
+    <h2>Shop Dashboard</h2>
+
+    <!-- Stats Cards -->
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Bills</h3>
+            <p>{{total_bills}}</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p>₹{{total_revenue}}</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Items</h3>
+            <p>{{total_items}}</p>
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card" style="margin-top:20px;">
+        <h3>Quick Actions</h3>
+
+        <a href="/billing">
+            <button class="btn">➕ Create Bill</button>
+        </a>
+
+        <a href="/inventory">
+            <button class="btn">📦 Manage Inventory</button>
+        </a>
+    </div>
+
+    <!-- Info Section -->
+    <div class="card" style="margin-top:20px;">
+        <h3>Tips</h3>
+        <p>✔ Keep inventory updated daily</p>
+        <p>✔ Track sales regularly</p>
+        <p>✔ Avoid low stock situations</p>
+    </div>
+
+</div>
+
+</body>
+</html>

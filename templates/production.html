@@ -1,0 +1,25 @@
+<h2>Production</h2>
+
+<form method="POST">
+<input name="item" placeholder="Rice Type">
+<input name="quantity" type="number" placeholder="Quantity (kg)">
+<button>Add</button>
+</form>
+
+<table border="1" width="80%">
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Date</th>
+</tr>
+
+{% for d in data %}
+<tr>
+<td>{{d.item}}</td>
+<td>{{d.quantity}}</td>
+<td>{{d.date}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/dashboard">Back</a>

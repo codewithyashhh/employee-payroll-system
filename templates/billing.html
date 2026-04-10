@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Billing</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<a href="/dashboard">Dashboard</a>
+<a href="/billing">Billing</a>
+<a href="/inventory">Inventory</a>
+</div>
+
+<div class="main">
+
+<h2>Billing</h2>
+
+<form method="POST">
+<input name="item" placeholder="Item">
+<input name="price" type="number" placeholder="Price">
+<button>Add</button>
+</form>
+
+<table>
+<tr>
+<th>Item</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+
+{% for b in bills %}
+<tr>
+<td>{{b.item}}</td>
+<td>₹{{b.price}}</td>
+<td>
+<a href="/delete_bill/{{b.id}}" class="btn btn-delete">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+</div>
+
+<a href="/dashboard">Back</a>
+
+</body>
+</html>

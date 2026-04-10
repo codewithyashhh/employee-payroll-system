@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rice Mill Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3 style="text-align:center;">Rice Mill ERP</h3>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/procurement">Procurement</a>
+    <a href="/inventory_rice">Rice Stock</a>
+    <a href="/production">Production</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <h2>Rice Mill Dashboard</h2>
+
+    <!-- Stats -->
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Stock Items</h3>
+            <p>{{total_items}}</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Production</h3>
+            <p>{{total_production if total_production else 0}}</p>
+        </div>
+
+        <div class="card">
+            <h3>Low Stock Alerts</h3>
+            <p>{{low_stock if low_stock else 0}}</p>
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card" style="margin-top:20px;">
+        <h3>Quick Actions</h3>
+
+        <a href="/inventory_rice">
+            <button class="btn">📦 Manage Stock</button>
+        </a>
+
+        <a href="/production">
+            <button class="btn">🏭 Add Production</button>
+        </a>
+    </div>
+
+    <!-- Info Section -->
+    <div class="card" style="margin-top:20px;">
+        <h3>Mill Info</h3>
+        <p>✔ Track rice bags (kg / quintal)</p>
+        <p>✔ Monitor daily production</p>
+        <p>✔ Avoid stock shortage</p>
+    </div>
+
+</div>
+
+</body>
+</html>
