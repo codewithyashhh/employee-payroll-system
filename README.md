@@ -42,3 +42,6 @@ employee-payroll-system/
 - Employee CRUD scaffold + salary composition
 - Attendance, leave, payroll, CRM, announcements, settings scaffolds
 - Payroll calculation rules for SM, Labour, ANL in `calc_payroll()`
+
+## Conflict resolution check
+Run `./scripts/check_conflicts.sh` to verify no unresolved merge markers exist before commit/push.
