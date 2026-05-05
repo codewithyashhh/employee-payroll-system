@@ -45,3 +45,6 @@ employee-payroll-system/
 
 ## Conflict resolution check
 Run `./scripts/check_conflicts.sh` to verify no unresolved merge markers exist before commit/push.
+
+### Merge conflict resolution between feature and main
+Use `./scripts/resolve_branch_conflicts.sh` to attempt merging `main` into `codex/build-production-ready-hr-and-payroll-system-atpa` with safe pre-checks and next-step guidance if conflicts occur.
