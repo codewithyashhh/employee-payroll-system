@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block content %}
+<h1>Settings</h1>
+<form method="post" class="card grid2"><input name="name" placeholder="Shift Name" required><input name="start_time" placeholder="HH:MM" required><input name="end_time" placeholder="HH:MM" required><button>Add Shift</button></form>
+<table><tr><th>Shift</th><th>Start</th><th>End</th></tr>{% for s in shifts %}<tr><td>{{s.name}}</td><td>{{s.start_time}}</td><td>{{s.end_time}}</td></tr>{% endfor %}</table>
+{% endblock %}

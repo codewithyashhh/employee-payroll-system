@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block content %}
+<h1>Payroll</h1>
+<form method="post" action="{{ url_for('payroll_run') }}"><button>Run Payroll (26-25 cycle)</button></form>
+<table><tr><th>Employee</th><th>Cycle</th><th>Gross</th><th>Deductions</th><th>Net</th></tr>{% for r in records %}<tr><td>{{employees_map[r.employee_id].employee_code}} - {{employees_map[r.employee_id].name}}</td><td>{{r.cycle_start}} to {{r.cycle_end}}</td><td>{{r.gross_salary}}</td><td>{{r.total_deductions}}</td><td>{{r.net_salary}}</td></tr>{% endfor %}</table>
+{% endblock %}

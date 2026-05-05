@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% block content %}
+<h1>Employee Management</h1>
+<form method="post" class="card" enctype="multipart/form-data">
+<h3>Personal Details</h3>
+<div class="grid2">
+<input name="name" placeholder="Name" required>
+<input name="phone" placeholder="Phone" required>
+<input name="aadhaar" placeholder="Aadhaar" required>
+<input name="department" placeholder="Department" required>
+<input name="designation" placeholder="Role" required>
+<textarea name="address" placeholder="Address" required></textarea>
+<select name="shift_id"><option value="">Shift</option>{% for s in shifts %}<option value="{{s.id}}">{{s.name}}</option>{% endfor %}</select>
+<select name="employee_type" id="employee_type"><option>SM</option><option>Labour</option><option>ANL</option></select>
+</div>
+
+<h3>Bank Details</h3>
+<div class="grid2">
+<input name="bank_name" placeholder="Bank Name"><input name="bank_account_number" placeholder="Account Number"><input name="bank_ifsc" placeholder="IFSC"><input name="account_holder_name" placeholder="Account Holder Name">
+</div>
+
+<h3>Salary Details</h3>
+<div class="grid2">
+<div class="salary-sm type-block"><input name="fixed_salary" placeholder="Fixed Salary (SM)"></div>
+<div class="salary-labour type-block"><input name="per_day_rate" placeholder="Per Day Rate (Labour)"></div>
+<div class="salary-anl type-block"><input name="basic" placeholder="Basic"><input name="hra" placeholder="HRA"><input name="da" placeholder="DA"><input name="special_allowance" placeholder="Special Allowance"><input name="bonus" placeholder="Bonus"><input name="gratuity" placeholder="Gratuity"></div>
+<input name="lwf" placeholder="LWF"><input name="esic_amount" placeholder="ESIC Amount"><input name="other_deductions" placeholder="Other Deductions">
+</div>
+
+<h3>Documents / Dynamic Fields</h3>
+<div class="grid2">
+{% for f in custom_fields %}
+{% set opts = f.options_json|from_json %}
+{% if f.field_type == 'dropdown' %}
+<select name="custom_{{f.id}}"><option value="">{{f.field_name}}</option>{% for o in opts %}<option value="{{o}}">{{o}}</option>{% endfor %}</select>
+{% elif f.field_type == 'file' %}
+<label>{{f.field_name}}<input type="file" name="{{f.field_name}}"></label>
+{% else %}
+<input name="custom_{{f.id}}" placeholder="{{f.field_name}}{% if f.is_required %} *{% endif %}">
+{% endif %}
+{% endfor %}
+</div>
+<button>Add Employee</button>
+</form>
+<table><tr><th>ID</th><th>Name</th><th>Type</th><th>Department</th></tr>{% for e in employees %}<tr><td>{{e.employee_code}}</td><td>{{e.name}}</td><td>{{e.employee_type}}</td><td>{{e.department}}</td></tr>{% endfor %}</table>
+{% endblock %}

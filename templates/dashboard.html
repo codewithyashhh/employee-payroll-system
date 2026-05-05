@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-
-<div class="sidebar">
-<h3 style="text-align:center;">ERP</h3>
-<a href="/dashboard">Dashboard</a>
-<a href="/billing">Billing</a>
-<a href="/inventory">Inventory</a>
-<a href="/logout">Logout</a>
+{% extends 'base.html' %}{% block content %}
+<h1>HR & Payroll Dashboard</h1>
+<div class="grid4">
+<div class="card">Total Employees: {{total_employees}}</div>
+<div class="card">Leave Requests: {{total_leaves}}</div>
+<div class="card">Payroll Records: {{total_payroll}}</div>
+<div class="card">Attendance Entries: {{total_attendance}}</div>
 </div>
-
-<div class="main">
-
-<h2>Dashboard</h2>
-
-<div class="cards">
-  <div class="card">Bills: {{total_bills}}</div>
-  <div class="card">Revenue: ₹{{total_revenue}}</div>
-  <div class="card">Items: {{total_items}}</div>
-</div>
-
-</div>
-
-</body>
-</html>
+{% endblock %}

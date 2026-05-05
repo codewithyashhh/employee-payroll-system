@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block content %}
+<h1>Custom Fields</h1>
+<form method="post" class="card grid2">
+<input name="field_name" placeholder="Field Name" required>
+<select name="field_type"><option value="text">Text</option><option value="number">Number</option><option value="date">Date</option><option value="dropdown">Dropdown</option><option value="file">File</option></select>
+<input name="options" placeholder="Dropdown options comma separated"><label><input type="checkbox" name="is_required"> Required</label><button>Add Field</button>
+</form>
+<table><tr><th>Name</th><th>Type</th><th>Required</th></tr>{% for f in fields %}<tr><td>{{f.field_name}}</td><td>{{f.field_type}}</td><td>{{f.is_required}}</td></tr>{% endfor %}</table>
+{% endblock %}
