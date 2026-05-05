@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HR Payroll CRM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>PeopleOps</h2>
+      <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('attendance') }}">Attendance</a>
+        <a href="{{ url_for('leaves') }}">Leaves</a>
+        <a href="{{ url_for('payroll_view') }}">Payroll</a>
+        <a href="{{ url_for('crm') }}">CRM</a>
+        <a href="{{ url_for('announcements') }}">Announcements</a>
+        <a href="{{ url_for('custom_fields') }}">Custom Fields</a>
+        <a href="{{ url_for('settings') }}">Settings</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </nav>
+    </aside>
+    <main>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="alerts">{% for c,m in messages %}<p class="alert {{c}}">{{m}}</p>{% endfor %}</div>
+      {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

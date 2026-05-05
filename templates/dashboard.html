@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-
-<div class="sidebar">
-<h3 style="text-align:center;">ERP</h3>
-<a href="/dashboard">Dashboard</a>
-<a href="/billing">Billing</a>
-<a href="/inventory">Inventory</a>
-<a href="/logout">Logout</a>
-</div>
-
-<div class="main">
-
-<h2>Dashboard</h2>
-
-<div class="cards">
-  <div class="card">Bills: {{total_bills}}</div>
-  <div class="card">Revenue: ₹{{total_revenue}}</div>
-  <div class="card">Items: {{total_items}}</div>
-</div>
-
-</div>
-
-</body>
-</html>
+{% extends 'base.html' %}{% block content %}
+<h1>Dashboard</h1><div class="grid4"><div class="card">Employees: {{total_employees}}</div><div class="card">Leaves: {{total_leaves}}</div><div class="card">Payroll runs: {{total_payroll}}</div><div class="card">Announcements: {{total_announcements}}</div></div>
+<section class="card"><h3>Announcements</h3>{% for a in announcements %}<p><b>{{a.title}}</b> - {{a.message}}</p>{% endfor %}</section>
+{% endblock %}
