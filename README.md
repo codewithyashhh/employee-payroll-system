@@ -48,3 +48,9 @@ Run `./scripts/check_conflicts.sh` to verify no unresolved merge markers exist b
 
 ### Merge conflict resolution between feature and main
 Use `./scripts/resolve_branch_conflicts.sh` to attempt merging `main` into `codex/build-production-ready-hr-and-payroll-system-atpa` with safe pre-checks and next-step guidance if conflicts occur.
+
+## Merge requirement fix
+If PR merge is blocked by checks, run:
+- `pip install -r requirements.txt`
+- `pytest -q`
+CI workflow is added at `.github/workflows/ci.yml`.
