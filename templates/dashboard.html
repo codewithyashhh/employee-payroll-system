@@ -1,4 +1,0 @@
-{% extends 'base.html' %}{% block content %}
-<h1>Dashboard</h1><div class="grid4"><div class="card">Employees: {{total_employees}}</div><div class="card">Leaves: {{total_leaves}}</div><div class="card">Payroll runs: {{total_payroll}}</div><div class="card">Announcements: {{total_announcements}}</div></div>
-<section class="card"><h3>Announcements</h3>{% for a in announcements %}<p><b>{{a.title}}</b> - {{a.message}}</p>{% endfor %}</section>
-{% endblock %}
