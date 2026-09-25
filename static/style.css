@@ -1,7 +1,0 @@
-:root{--bg:#f5f7fb;--card:#fff;--primary:#3451b2;--text:#24324b}*{box-sizing:border-box}body{font-family:Inter,Arial,sans-serif;margin:0;background:var(--bg);color:var(--text)}
-.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:#111b36;color:#fff;padding:1rem}.sidebar a{display:block;color:#dbe4ff;text-decoration:none;padding:.5rem 0}
-main{padding:1.2rem}.card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,.06);margin:.7rem 0}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem}
-input,select,textarea,button{padding:.6rem;border:1px solid #ced8ef;border-radius:7px}button{background:var(--primary);color:#fff;border:0}table{width:100%;background:#fff;border-collapse:collapse}td,th{padding:.6rem;border-bottom:1px solid #eaeef7}
-.auth-page{display:grid;place-items:center;height:100vh}.auth{width:min(400px,90vw)}
-.alert.success{color:#0d7f32}.alert.danger{color:#a10d0d}
